@@ -11,7 +11,7 @@ public class cultivo {
     @Column(name = "id", nullable = false)
     private Long id;
 
-
+    private String fecha;
     private String en_federativa;
     private String Distrito;
     private String ciclo;
@@ -23,6 +23,10 @@ public class cultivo {
     private String mes;
     private String año;
     private String tipocultivo;
+
+    @ManyToOne
+    @JoinColumn
+    private usuario usuario;
 
 
 }
