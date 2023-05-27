@@ -1,4 +1,4 @@
-package com.serviceagricultor.serviceagricultor.mode.entity;
+package com.serviceagricultor.serviceagricultor.model.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class cultivo {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
 
