@@ -1,9 +1,7 @@
 package com.serviceagricultor.serviceagricultor.model.service;
 
 import com.serviceagricultor.serviceagricultor.model.entity.cultivo;
-import com.serviceagricultor.serviceagricultor.model.entity.usuario;
 import com.serviceagricultor.serviceagricultor.repository.cultivoRepository;
-import com.serviceagricultor.serviceagricultor.repository.usuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,25 +9,20 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-public class impUsuario {
+public class impCultivo {
+
     @Autowired
-    private usuarioRepository imp;
+    private cultivoRepository imp;
 
 
     @Transactional
-    public void save(usuario us) {
+    public void savecultivo(cultivo c) {
+        imp.save(c);
 
-        imp.save(us);
     }
-
-
     @Transactional
 
-    public List<usuario> findAll() {
-
-        return (List<usuario>) imp.findAll();
+    public List<cultivo> findall(){
+        return (List<cultivo>) imp.findAll();
     }
-
-
-
 }

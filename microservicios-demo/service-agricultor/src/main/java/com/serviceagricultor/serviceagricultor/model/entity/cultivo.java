@@ -23,9 +23,8 @@ public class cultivo {
     private String mes;
     private String año;
     private String tipocultivo;
-
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name = "usuario_id")
     private usuario usuario;
 
 

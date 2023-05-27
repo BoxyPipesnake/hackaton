@@ -16,7 +16,7 @@ public class usuario {
 
     private String nombre;
 
-    private Integer nombnre;
+    private String apellido;
 
     private String telefono;
 
@@ -28,5 +28,8 @@ public class usuario {
         cultivos = new ArrayList<cultivo>();
     }
 
+    public void addcultivos(cultivo cultivo) {
+        cultivos.add(cultivo);
+    }
 
 }
