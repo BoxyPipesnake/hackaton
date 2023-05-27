@@ -1,48 +1,139 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <title>Formulario con Bootstrap</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-<body>
-  <div class="container">
-    <h1>Formulario</h1>
-    
-    <div class="alert alert-primary" role="alert">
-      <strong>Tipo de Riegos</strong>
-    </div>
-    
-    <form action="" method="post">
-      <div class="form-group">
-        <label for="distrito">Distrito:</label>
-        <input type="text" class="form-control" id="distrito" name="distrito" required>
-      </div>
-      <div class="form-group">
-        <label for="municipio">Municipio:</label>
-        <input type="text" class="form-control" id="municipio" name="municipio" required>
-      </div>
-      <div class="form-group">
-        <label for="hectareas">Hectáreas:</label>
-        <input type="number" class="form-control" id="hectareas" name="hectareas" step="0.01" required>
-      </div>
-      <div class="form-group">
-        <label for="mes">Mes:</label>
-        <input type="text" class="form-control" id="mes" name="mes" required>
-      </div>
-      <div class="form-group">
-        <label for="año">Año:</label>
-        <input type="text" class="form-control" id="año" name="año" required>
-      </div>
-      <div class="form-group">
-        <label for="tipocultivo">Tipo de Cultivo:</label>
-        <input type="text" class="form-control" id="tipocultivo" name="tipocultivo" required>
-      </div>
-      <button type="submit" class="btn btn-danger">Enviar</button>
-    </form>
-  </div>
+  <head>
+    <meta charset="utf-8" />
+    <title>Formulario con Bootstrap</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Formulario</h1>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/bootstrap.min.js"></script>
-</body>
+      <div class="alert alert-primary" role="alert">
+        <strong>Tipo de Riegos</strong>
+      </div>
+
+      <form id="datosPersonalesForm" class="active">
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="nombre">Nombre</label>
+              <input type="text" class="form-control" id="nombre" required />
+            </div>
+            <div class="form-group">
+              <label for="apellido">Apellido</label>
+              <input type="text" class="form-control" id="apellido" required />
+            </div>
+            <div class="form-group">
+              <label for="telefono">Teléfono</label>
+              <input type="text" class="form-control" id="telefono" required />
+            </div>
+            <div class="form-group">
+              <label for="direccion">Dirección</label>
+              <input type="text" class="form-control" id="direccion" required />
+            </div>
+          </div>
+      
+          <div class="col">
+            <div class="form-group">
+              <label for="fecha">Fecha de Cultivo</label>
+              <input type="text" class="form-control" id="fecha" required />
+            </div>
+            <div class="form-group">
+              <label for="estado">Estado Federativo</label>
+              <input type="text" class="form-control" id="estado" required />
+            </div>
+            <div class="form-group">
+              <label for="ciclo">Ciclo de Cultivo</label>
+              <input type="text" class="form-control" id="ciclo" required />
+            </div>
+          </div>
+        </div>
+      
+        <button type="submit" class="btn btn-primary">Enviar</button>
+      </form>
+      
+      <form action="" method="post" id="form" class="inactive">
+        <div class="row">
+          <div class="column col">
+            <div class="form-group">
+              <label for="distrito">Distrito:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="distrito"
+                name="distrito"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="municipio">Municipio:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="municipio"
+                name="municipio"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="hectareas">Hectáreas:</label>
+              <input
+                type="number"
+                class="form-control"
+                id="hectareas"
+                name="hectareas"
+                step="0.01"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="mes">Mes:</label>
+              <input type="text" class="form-control" id="mes" name="mes" required />
+            </div>
+          </div>
+      
+          <div class="column col">
+            <div class="form-group">
+              <label for="ano">Año:</label>
+              <input type="text" class="form-control" id="ano" name="ano" required />
+            </div>
+      
+            <div class="form-group">
+              <label for="tipocultivo">Tipo de Cultivo:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="tipocultivo"
+                name="tipocultivo"
+                required
+              />
+            </div>
+      
+            <div class="form-group">
+              <label for="enfederativa">Entidad Federativa</label>
+              <select name="" id="" class="form-select">
+                <option value="">Apodaca</option>
+                <option value="">Anahuac</option>
+                <option value="">Montemorelos</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      
+        <button id="btnRiesgos" type="submit" class="btn btn-danger">
+          Enviar
+        </button>
+      </form>
+
+    </div>
+
+    <script src="./js/app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/bootstrap.min.js"></script>
+  </body>
 </html>
