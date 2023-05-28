@@ -1,8 +1,6 @@
 package com.serviceagricultor.serviceagricultor.model.service;
 
-import com.serviceagricultor.serviceagricultor.model.entity.cultivo;
 import com.serviceagricultor.serviceagricultor.model.entity.usuario;
-import com.serviceagricultor.serviceagricultor.repository.cultivoRepository;
 import com.serviceagricultor.serviceagricultor.repository.usuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

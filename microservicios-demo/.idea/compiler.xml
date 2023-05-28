@@ -7,14 +7,17 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="service-agricultor" />
+        <module name="cultivos" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="cultivos" target="17" />
       <module name="service-agricultor" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="cultivos" options="-parameters" />
       <module name="service-agricultor" options="-parameters" />
     </option>
   </component>

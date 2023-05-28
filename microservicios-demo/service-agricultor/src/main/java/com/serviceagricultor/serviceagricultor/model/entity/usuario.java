@@ -1,14 +1,16 @@
 package com.serviceagricultor.serviceagricultor.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Data
-public class usuario {
+public class usuario implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
@@ -16,20 +18,24 @@ public class usuario {
 
     private String nombre;
 
+
     private String apellido;
 
     private String telefono;
 
     private String direccion;
-    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<cultivo> cultivos;
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "usuario")
+    private List<cultivo> cultivo;
+
+
+
 
     public usuario() {
-        cultivos = new ArrayList<cultivo>();
+        cultivo = new ArrayList<cultivo>();
     }
 
-    public void addcultivos(cultivo cultivo) {
-        cultivos.add(cultivo);
+    public void add(cultivo c) {
+        cultivo.add(c);
     }
 
 }

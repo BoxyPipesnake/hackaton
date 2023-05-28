@@ -4,6 +4,7 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/service-agricultor/pom.xml" />
+        <option value="$PROJECT_DIR$/cultivos/pom.xml" />
       </list>
     </option>
   </component>

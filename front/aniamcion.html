@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Animación de Cultivo</title>
+    <style>
+      body {
+        background-color: #f0f0f0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="cultivoCanvas"></canvas>
+    <button onclick="startAnimation()">Iniciar Animación</button>
+
+    <script>
+      const canvas = document.getElementById('cultivoCanvas');
+      const ctx = canvas.getContext('2d');
+
+      const canvasWidth = 400;
+      const canvasHeight = 300;
+      const dotSize = 5;
+      const dotSpacing = 10;
+
+      const numRows = Math.floor(canvasHeight / dotSpacing);
+      const numCols = Math.floor(canvasWidth / dotSpacing);
+
+      const backgroundColor = '#964b00'; // Color de fondo café
+      const fillColor = '#008000'; // Color de los puntos verdes
+
+      const cultivoRect = {
+        x: 50,
+        y: 50,
+        width: 300,
+        height: 200,
+      };
+
+      let loadedRows = 0;
+      let loadedCols = 0;
+      let animationTime = 0;
+      let animationInterval;
+
+      function drawCultivo() {
+        ctx.fillStyle = backgroundColor;
+        ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+
+        ctx.fillStyle = fillColor;
+
+        for (let row = 0; row < numRows; row++) {
+          for (let col = 0; col < numCols; col++) {
+            if (row < loadedRows && col < loadedCols) {
+              const x = cultivoRect.x + col * dotSpacing + dotSpacing / 2;
+              const y = cultivoRect.y + row * dotSpacing + dotSpacing / 2;
+
+              ctx.beginPath();
+              ctx.arc(x, y, dotSize, 0, 2 * Math.PI);
+              ctx.fill();
+            }
+          }
+        }
+
+        if (loadedCols < numCols) {
+          loadedCols++;
+        } else if (loadedRows < numRows) {
+          loadedRows++;
+          loadedCols = 0;
+        }
+
+        if (loadedRows < numRows || loadedCols < numCols) {
+          animationTime++;
+        } else {
+          clearInterval(animationInterval);
+        }
+      }
+
+      function startAnimation() {
+        loadedRows = 0;
+        loadedCols = 0;
+        animationTime = 0;
+
+        animationInterval = setInterval(() => {
+          drawCultivo();
+        }, 100); // Retrasar la animación en 100ms
+      }
+
+      canvas.width = canvasWidth;
+      canvas.height = canvasHeight;
+    </script>
+  </body>
+</html>
