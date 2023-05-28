@@ -162,8 +162,9 @@ select {
 }
 
 .col-img {
-     margin-left: -231px;
-    margin-top: 249px;
+  margin-left: -252px;
+  margin-top: 135px;
+  width: 600px;
 }
 
 .btn-registro {
