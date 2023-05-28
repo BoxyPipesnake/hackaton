@@ -50,8 +50,57 @@ form.addEventListener('submit', function (event) {
     telefono
   };
 
-  
+
 
   // Realizar la solicitud POST
   postData(data);
+});
+
+// Formulario Cultivo
+
+document.getElementById('registroForm').addEventListener('submit', function (event) {
+  event.preventDefault();
+
+  // Obtener los valores de los campos de entrada
+  const distrito = document.getElementById('distrito').value;
+  const fecha = document.getElementById('fecha').value;
+  const hectareas = document.getElementById('hectareas').value;
+  const litros = document.getElementById('litros').value;
+  const cultivo = document.getElementById('cultivo').value;
+
+  // Validar los campos
+  if (!distrito || !fecha || !hectareas || !litros || !cultivo) {
+    alert('Por favor, complete todos los campos');
+    return;
+  }
+
+  // Crear el objeto de datos a enviar
+  const data = {
+    distrito,
+    fecha,
+    hectareas,
+    litros,
+    cultivo
+  };
+
+  // Realizar la solicitud POST
+  const xhr = new XMLHttpRequest();
+  xhr.open('POST', 'https://api.example.com/submit', true);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4) {
+      if (xhr.status === 200) {
+        console.log('Datos enviados exitosamente');
+      } else {
+        console.error('Error al enviar los datos');
+      }
+    }
+  };
+
+  xhr.onerror = function () {
+    console.error('Error en la solicitud');
+  };
+
+  xhr.send(JSON.stringify(data));
 });

@@ -12,12 +12,21 @@
         background: linear-gradient(
           135deg,
           rgb(235, 229, 229) 60%,
-          rgb(247, 244, 52)
+          #b38f78
         );
         display: flex;
         justify-content: center;
         flex-direction: column;
         align-items: center;
+      }
+
+      .tigreH1 {
+        margin-top: 2rem;
+        padding: 1rem;
+        background-color: yellow;
+        opacity: 0.8;
+        border-radius: 25px;
+        font-size: 1.5rem;
       }
 
       .nav {
@@ -44,8 +53,11 @@
       }
 
       .formTigre {
+        border-radius: 10px;
+        margin-bottom: 1rem;
         display: flex;
         flex-direction: column;
+        justify-content: center;
         gap: 1.3rem;
         background-color: white;
         padding: 2rem;  
@@ -55,11 +67,31 @@
         font-size: 1.2rem;
       }
 
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+      }
+
       .btnTigre {
         text-decoration: none;
         color: black;
         display: block;
         padding: 1.5rem;
+        font-weight: bold;
+        font-size: 1rem;
+        letter-spacing: 1px;
+        color: white;
+        text-transform: uppercase;  
+      }
+
+      .btnTigre-1 {
+        background-color: #93EF9D;
+        border-radius: 25px;
+      }
+
+      .btnTigre-2 {
+        background-color: red;
+        border-radius: 25px;
       }
 
     </style>
@@ -72,7 +104,7 @@
         </div>
       </nav>
       <div class="container-form">
-        <h1>Login</h1>
+        <h1 class="tigreH1">Login</h1>
         <form action="" class="formTigre">
           <div class="form-group">
             <label for="nombreForm" class="labelTigre">Nombres</label>
@@ -82,9 +114,9 @@
             <label for="idForm" class="labelTigre">id.</label>
             <input type="password" id="idform">
           </div>
-          <div class="flex">
+          <div class="grid">
             <a href="index.html" class="btnTigre btnTigre-1">Login</a>
-            <a href="#" class="btnTigre btnTigre-2">Registar</a>
+            <a href="#" class="btnTigre btnTigre-2">Registrar</a>
           </div>
         </form>
       </div>
