@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class impUsuario {
@@ -22,10 +23,15 @@ public class impUsuario {
 
 
     @Transactional
-
     public List<usuario> findAll() {
 
         return (List<usuario>) imp.findAll();
+    }
+
+    @Transactional
+    public Optional<usuario> findById(Long id) {
+
+        return imp.findById(id);
     }
 
 
