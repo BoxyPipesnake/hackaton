@@ -9,7 +9,7 @@
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body class="d-flex h-100 align-items-center justify-content-center  ">
     <div class="container">
       <h1>Formulario</h1>
 
@@ -21,40 +21,40 @@
         <div class="row">
           <div class="col">
             <div class="form-group">
-              <label for="nombre">Nombre</label>
+              <label for="nombre" class="fw-bold">Nombre</label>
               <input type="text" class="form-control" id="nombre" required />
             </div>
             <div class="form-group">
-              <label for="apellido">Apellido</label>
+              <label class="fw-bold" for="apellido">Apellido</label>
               <input type="text" class="form-control" id="apellido" required />
             </div>
             <div class="form-group">
-              <label for="telefono">Teléfono</label>
+              <label for="telefono" class="fw-bold">Teléfono</label>
               <input type="text" class="form-control" id="telefono" required />
             </div>
             <div class="form-group">
-              <label for="direccion">Dirección</label>
+              <label for="direccion" class="fw-bold">Dirección</label>
               <input type="text" class="form-control" id="direccion" required />
             </div>
           </div>
       
           <div class="col">
             <div class="form-group">
-              <label for="fecha">Fecha de Cultivo</label>
+              <label for="fecha" class="fw-bold">Fecha de Cultivo</label>
               <input type="text" class="form-control" id="fecha" required />
             </div>
             <div class="form-group">
-              <label for="estado">Estado Federativo</label>
+              <label for="estado" class="fw-bold">Estado Federativo</label>
               <input type="text" class="form-control" id="estado" required />
             </div>
             <div class="form-group">
-              <label for="ciclo">Ciclo de Cultivo</label>
+              <label for="ciclo" class="fw-bolder">Ciclo de Cultivo</label>
               <input type="text" class="form-control" id="ciclo" required />
             </div>
           </div>
         </div>
       
-        <button type="submit" class="btn btn-primary">Enviar</button>
+        <button type="submit" class="btn btn-primary button-31">Enviar</button>
       </form>
       
       <form action="" method="post" id="form" class="inactive">
@@ -83,20 +83,20 @@
             <div class="form-group">
               <label for="hectareas">Hectáreas:</label>
               <input
-                type="number"
-                class="form-control"
-                id="hectareas"
-                name="hectareas"
-                step="0.01"
-                required
+              type="number"
+              class="form-control"
+              id="hectareas"
+              name="hectareas"
+              step="0.01"
+              required
               />
             </div>
-            <div class="form-group">
-              <label for="mes">Mes:</label>
-              <input type="text" class="form-control" id="mes" name="mes" required />
-            </div>
           </div>
-      
+          
+          <div class="form-group">
+            <label for="mes">Mes:</label>
+            <input type="text" class="form-control" id="mes" name="mes" required />
+          </div>
           <div class="column col">
             <div class="form-group">
               <label for="ano">Año:</label>
@@ -125,7 +125,7 @@
           </div>
         </div>
       
-        <button id="btnRiesgos" type="submit" class="btn btn-danger">
+        <button id="btnRiesgos" type="submit" class="btn btn-danger button-31">
           Enviar
         </button>
       </form>
