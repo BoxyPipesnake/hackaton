@@ -1,14 +1,17 @@
-*, *::before, *::after {
-    margin: 0;
-    padding: 0;
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
 }
 
 h1 {
-    font-size: 2rem;
+  font-size: 2rem;
 }
 
-h1, h3 {
-    font-weight: bold;
+h1,
+h3 {
+  font-weight: bold;
 }
 
 /* .stats-content{ 
@@ -20,5 +23,18 @@ h1, h3 {
 } */
 
 .agregarCultivo-btn {
-    font-size: 1.9rem;
+  font-size: 1.9rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* Estilos adicionales */
+.pop-up-content {
+  animation: fadeIn 1s;
 }
