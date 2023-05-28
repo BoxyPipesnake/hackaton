@@ -9,9 +9,50 @@
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="dashboard.css" />
   </head>
   <body class="">
-    
+
+    <main class="dashboard-container d-flex vh-100">
+      <aside class="dashboard-aside p-3 pt-5 col-2 bg-dark">
+        <h1 class="mb-5 text-white text-center">CultivaTI</h1>
+        <a class="d-block mb-5" href="#">
+          <span>icon</span>
+          Dashboard
+        </a>
+        <a class="d-block mb-5" href="#">
+          <span>icon</span>
+          Seccion 1
+        </a>
+        <a class="d-block mb-5" href="#">
+          <span>icon</span>
+          Seccion 2
+        </a>
+        <a class="d-block mb-5" href="#">
+          <span>icon</span>
+          Seccion 3
+        </a>
+        <a class="d-block mb-5" href="#">
+          <span>icon</span>
+          Seccion 4
+        </a>
+      </aside>
+      <section class="stats-section container col p-0 bg-secondary">
+        <nav class="stats-nav p-4 bg-dark col font-weight-bolder">
+          <h3 class="text-white">Dashboard</h3>
+        </nav>
+        <!-- Despliegue de informacion -->
+        <div class="stats-content col p-3">
+          <div class="graph col bg-white mb-5 mt-5">texto</div>
+          <div class="grid row p-3 ">            
+            <div class="grid-item m-0 mr-4 p-0  pt-3 pb-3  col bg-dark">1</div>
+            <div class="grid-item m-0 mr-4 p-0  pt-3 pb-3 col bg-dark">2</div>
+            <div class="grid-item m-0 p-0  pt-3 pb-3 col bg-success"><p class="agregarCultivo-btn text-white text-center mb-0 font-weight-bold">AGREGAR CULTIVO</p></div>
+          </div>
+        </div>
+        
+      </section>
+    </main>
+
   </body>
 </html>
