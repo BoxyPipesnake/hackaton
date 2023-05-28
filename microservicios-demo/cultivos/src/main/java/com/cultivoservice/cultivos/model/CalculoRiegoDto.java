@@ -4,9 +4,10 @@ import lombok.Data;
 
 @Data
 public class CalculoRiegoDto {
-    private Integer id;
+    private Long idUsuario;
     private String nombreUsuario;
     private double hectareas;
+    private double litrosAlmacenados;
     private String cultivo;
     private double aguaPlanta;
     private int duracionCosecha;
@@ -14,10 +15,9 @@ public class CalculoRiegoDto {
     private int horasRiego;
     private int consumoDia;
     private int consumoCiclo;
-
-    public CalculoRiegoDto(Integer id ,String nombreUsuario, double hectareas, String cultivo, double aguaPlanta,
+    public CalculoRiegoDto(Long id ,String nombreUsuario, double hectareas, String cultivo, double aguaPlanta,
                            int duracionCosecha, int densidadHectarea, int horasRiego, int consumoDia, int consumoCiclo) {
-        this.id = id;
+        this.idUsuario=id;
         this.nombreUsuario = nombreUsuario;
         this.hectareas = hectareas;
         this.cultivo = cultivo;

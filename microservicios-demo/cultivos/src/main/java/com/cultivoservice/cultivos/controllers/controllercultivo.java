@@ -1,5 +1,6 @@
 package com.cultivoservice.cultivos.controllers;
 
+import com.cultivoservice.cultivos.model.CalculoRiegoDto;
 import com.cultivoservice.cultivos.model.entity.calculoriego;
 import com.cultivoservice.cultivos.model.entity.cultivo;
 import com.cultivoservice.cultivos.model.entity.usuario;
@@ -22,8 +23,9 @@ import java.util.Locale;
 @RequestMapping("/api-cultivo")
 public class controllercultivo {
     @PostMapping("/calculoriego")
-    public usuario calculoriego(@RequestBody usuario use) throws IOException, CsvValidationException {
+    public List<CalculoRiegoDto> calculoriego(@RequestBody usuario use) throws IOException, CsvValidationException {
         usuario user = use;
+        List<CalculoRiegoDto> calculos = new ArrayList<>();
         String csvFilePath = "static/cvagua.csv";
         ClassPathResource resource = new ClassPathResource(csvFilePath);
         FileReader fileReader = new FileReader(resource.getFile());
@@ -52,30 +54,40 @@ public class controllercultivo {
             // Comparar el tipo de cultivo con los tipos del archivo CSV
             for (cultivo c : user.getCultivo()) {
                 if (c.getCultivo().equalsIgnoreCase(cultivoCSV)) {
-                    System.out.println("id " + user.getId());
-                    System.out.println("nombe " + user.getNombre());
-                    System.out.println("hectareas=  " + c.getHectareas());
-                    System.out.println("listros almacenados = " + c.getLitros());
+                    CalculoRiegoDto calculo = new CalculoRiegoDto(
+                            user.getId(),
+                            user.getNombre(),
+                            c.getHectareas(),
+                            c.getCultivo(),
+                            aguaPlanta,
+                            duracionCosecha,
+                            densidadHectarea,
+                            horasRiego,
+                            (int) ((aguaPlanta * 2) * (horasRiego * densidadHectarea) * c.getHectareas()),
+                            (int) ((aguaPlanta * 2) * (horasRiego * densidadHectarea) * c.getHectareas() * duracionCosecha)
+                    );
 
-                    System.out.println("informacion de cultivo");
-                    System.out.println("Cultivo: " + c.getCultivo());
-                    System.out.println("Agua por planta (L): " + aguaPlanta);
-                    System.out.println("Duración de cosecha: " + duracionCosecha);
-                    System.out.println("Densidad por hectárea: " + densidadHectarea);
-                    System.out.println("Horas de riego: " + horasRiego);
-                    Integer dia = (int) ((aguaPlanta * 2) * (horasRiego * densidadHectarea) * c.getHectareas());
-                    System.out.println("dia = " + dia);
-                    Integer ciclo = dia * duracionCosecha;
-                    System.out.println("agua consumida por ciclo de cultivo = " + ciclo);
+                    calculos.add(calculo);
 
+                    System.out.println("id " + calculo.getIdUsuario());
+                    System.out.println("nombre " + calculo.getNombreUsuario());
+                    System.out.println("hectareas = " + calculo.getHectareas());
+                    System.out.println("cultivo = " + calculo.getCultivo());
+                    System.out.println("aguaPlanta = " + calculo.getAguaPlanta());
+                    System.out.println("duracionCosecha = " + calculo.getDuracionCosecha());
+                    System.out.println("densidadHectarea = " + calculo.getDensidadHectarea());
+                    System.out.println("horasRiego = " + calculo.getHorasRiego());
+                    System.out.println("consumoDia = " + calculo.getConsumoDia());
+                    System.out.println("consumoCiclo = " + calculo.getConsumoCiclo());
 
                     System.out.println();
+
                     break; // Salir del bucle una vez se encuentre el cultivo correspondiente
                 }
             }
         }
 
-        return user;
+        return calculos;
     }
 
 
