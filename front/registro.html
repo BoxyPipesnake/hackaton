@@ -17,7 +17,7 @@
     <main class="main-container">
       <div class="main-content">
         <div class="col-registro">
-          <form action="" class="form">
+          <form  id="myform" class="form">
             <h1 class="registro">Registro</h1>
             <div class="flex">
               <div class="form-field">
@@ -40,7 +40,7 @@
               <input type="text" id="tel" placeholder="8190735219"/>
             </div>
 
-          
+
 
             <button type="button" class="btn-registro">Registrar</button>
           </form>
@@ -54,6 +54,56 @@
 
       </div>
     </main>
-    <script src="app.js"></script>
+
+    <script>
+    // Get the form element
+const form = document.getElementById('myform');
+
+// Add an event listener to the "Registrar" button
+const submitButton = form.querySelector('.btn-registro');
+submitButton.addEventListener('click', sendData);
+
+// Function to send the form data
+function sendData() {
+  // Get the input values
+  const nombres = document.getElementById('nombres').value;
+  const apellidos = document.getElementById('apellidos').value;
+  const direccion = document.getElementById('dir').value;
+  const telefono = document.getElementById('tel').value;
+
+  // Create an object with the form data
+  const formData = {
+    id: 1,
+    nombre: nombres,
+    apellido: apellidos,
+    telefono: telefono,
+    direccion: direccion
+  };
+
+  // Send the data using fetch
+  fetch('http://localhost:8001/api-cultivo/save', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(formData)
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not OK');
+      }
+      return response.json();
+    })
+    .then(data => {
+      // Process the response data
+      console.log(data);
+    })
+    .catch(error => {
+      // Handle any errors that occurred during the request
+      console.error('Error:', error);
+    });
+}
+
+    </script>
   </body>
 </html>

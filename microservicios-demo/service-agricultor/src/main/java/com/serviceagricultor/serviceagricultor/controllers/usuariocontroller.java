@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/api-cultivo")
 public class usuariocontroller {
     @Autowired
@@ -19,7 +20,7 @@ public class usuariocontroller {
 
 
     @PostMapping("/save")
-    @CrossOrigin("*")
+    @CrossOrigin(origins = "*")
     public usuario guardarUsuario(@RequestBody usuario us) {
 
         usuario user = us;
@@ -37,14 +38,14 @@ public class usuariocontroller {
     }
 
     @GetMapping("/findAll")
-    @CrossOrigin("*")
+    @CrossOrigin(origins = "*")
     public List<usuario> findall() {
 
         return imp.findAll();
     }
 
     @GetMapping("/cultivos/user/{id}")
-    @CrossOrigin("*")
+    @CrossOrigin(origins = "*")
     public UsuarioDTO findall(@PathVariable(name = "id") Long id) {
         UsuarioDTO dto = new UsuarioDTO();
         dto.setId(imp.findById(id).get().getId());
