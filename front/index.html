@@ -5,14 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cultivos</title>
-    <!-- <link
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    /> -->
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="dashboard.css" />
   </head>
   <body class="">
@@ -41,111 +39,127 @@
         </a>
       </aside>
 
-      <section class="stats-section container col bg-secondary m-0 p-0">  
+      <section class="stats-section container col bg-secondary m-0 p-0">
         <nav class="stats-nav p-4 bg-dark col font-weight-bolder">
           <h3 class="text-white">Dashboard</h3>
         </nav>
         <!-- Despliegue de informacion -->
 
-        <button
-          id="agregarSistemaBtn"
-          class="btn btn-lg bg-success text-white font-weight-bolder mt-3 ms-3"
-        >
-          Agregar sistema de riego
-        </button>
+        <div id="sistemasContainer" class="p-3 d-flex flex-wrap"></div>
 
-        <div id="sistemasContainer" class="p-3 d-flex flex-wrap "></div>
+        <div class="table-responsive mt-4">
+          <table id="sistemasTable" class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Cliente</th>
+                <th scope="col">Sistema de riego</th>
+                <th scope="col">Campo 1</th>
+                <th scope="col">Campo 2</th>
+                <th scope="col">Campo 3</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
       </section>
 
-      <div
-        class="modal fade"
-        id="myModal"
-        tabindex="-1"
-        aria-labelledby="myModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="myModalLabel">
-                Información del Sistema
-              </h5>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="modal-body">
-              <p id="sistemaInfo" class="pop-up-content">
-                Información relevante del sistema de riego.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const sistemasContainer =
+            document.getElementById("sistemasContainer");
+          const sistemasTable = document
+            .getElementById("sistemasTable")
+            .getElementsByTagName("tbody")[0];
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const agregarSistemaBtn = document.getElementById("agregarSistemaBtn");
-        const sistemasContainer = document.getElementById("sistemasContainer");
-        const sistemaInfoElement = document.getElementById("sistemaInfo");
+          let sistemaCount = 0;
 
-        let sistemaCount = 0;
+          sistemasContainer.addEventListener("click", function (event) {
+            const target = event.target;
+            if (target.classList.contains("sistema-riego")) {
+              const sistemaId = target.getAttribute("data-sistema-id");
+              const sistemaInfo = getSystemInfo(sistemaId); // Obtener información relevante del sistema de riego
 
-        agregarSistemaBtn.addEventListener("click", function () {
+              const sistemaRow = createSistemaRow(sistemaId, sistemaInfo);
+              sistemasTable.appendChild(sistemaRow);
+            }
+          });
+
+          function getSystemInfo(sistemaId) {
+            // Aquí puedes obtener la información relevante del sistema de riego
+            // Puedes reemplazar esta lógica con tu propia lógica para obtener información aleatoria
+            const sistemaInfo = {
+              "sistema-1": {
+                cliente: "Cliente 1",
+                campo1: "Lorem ipsum",
+                campo2: "Lorem ipsum",
+                campo3: "Lorem ipsum",
+              },
+              "sistema-2": {
+                cliente: "Cliente 2",
+                campo1: "Lorem ipsum",
+                campo2: "Lorem ipsum",
+                campo3: "Lorem ipsum",
+              },
+              "sistema-3": {
+                cliente: "Cliente 3",
+                campo1: "Lorem ipsum",
+                campo2: "Lorem ipsum",
+                campo3: "Lorem ipsum",
+              },
+            };
+
+            return sistemaInfo[sistemaId] || {};
+          }
+
+          function createSistemaRow(sistemaId, sistemaInfo) {
+            const sistemaRow = document.createElement("tr");
+
+            const clienteCell = document.createElement("td");
+            clienteCell.textContent = sistemaInfo.cliente || "";
+            sistemaRow.appendChild(clienteCell);
+
+            const sistemaCell = document.createElement("td");
+            sistemaCell.textContent = sistemaId;
+            sistemaRow.appendChild(sistemaCell);
+
+            const campo1Cell = document.createElement("td");
+            campo1Cell.textContent = sistemaInfo.campo1 || "";
+            sistemaRow.appendChild(campo1Cell);
+
+            const campo2Cell = document.createElement("td");
+            campo2Cell.textContent = sistemaInfo.campo2 || "";
+            sistemaRow.appendChild(campo2Cell);
+
+            const campo3Cell = document.createElement("td");
+            campo3Cell.textContent = sistemaInfo.campo3 || "";
+            sistemaRow.appendChild(campo3Cell);
+
+            return sistemaRow;
+          }
+
+          // Agregar sistemas de riego inicialmente
           addSistemaRiego();
-        });
 
-        sistemasContainer.addEventListener("click", function (event) {
-          const target = event.target;
-          if (target.classList.contains("sistema-riego")) {
-            const sistemaId = target.getAttribute("data-sistema-id");
-            const sistemaInfo = getSystemInfo(sistemaId); // Obtener información relevante del sistema de riego
+          function addSistemaRiego() {
+            const sistemaId = `sistema-${sistemaCount}`;
 
-            sistemaInfoElement.textContent = sistemaInfo;
-
-            // Mostrar el modal
-            const myModal = new bootstrap.Modal(
-              document.getElementById("myModal")
+            const sistemaElement = document.createElement("div");
+            sistemaElement.classList.add(
+              "alert",
+              "alert-primary",
+              "sistema-riego",
+              "align-items-center",
+              "col-6"
             );
-            myModal.show();
+            sistemaElement.setAttribute("data-sistema-id", sistemaId);
+            sistemaElement.textContent = `Sistema ${sistemaCount + 1}`;
+
+            sistemasContainer.appendChild(sistemaElement);
+
+            sistemaCount++;
           }
         });
-
-        function getSystemInfo(sistemaId) {
-          // Aquí puedes obtener la información relevante del sistema de riego
-          // Puedes reemplazar esta lógica con tu propia lógica para obtener información aleatoria
-          const sistemaInfo = {
-            "sistema-1": "Información del Sistema 1",
-            "sistema-2": "Información del Sistema 2",
-            "sistema-3": "Información del Sistema 3",
-          };
-
-          return sistemaInfo[sistemaId] || "No hay información disponible";
-        }
-
-        function addSistemaRiego() {
-          const sistemaId = `sistema-${sistemaCount}`;
-
-          const sistemaElement = document.createElement("div");
-          sistemaElement.classList.add(
-            "alert",
-            "alert-primary",
-            "sistema-riego",
-            "align-items-center",
-            "col-6",
-          );
-          sistemaElement.setAttribute("data-sistema-id", sistemaId);
-          sistemaElement.textContent = `Sistema ${sistemaCount + 1}`;
-
-          sistemasContainer.appendChild(sistemaElement);
-
-          sistemaCount++;
-        }
-      });
-    </script>
+      </script>
+    </main>
   </body>
 </html>
