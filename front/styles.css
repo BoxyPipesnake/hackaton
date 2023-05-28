@@ -157,8 +157,9 @@ select {
 
 .col-bg {
   background-color: #A68069;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
+  background-image: url('./img/map.jpeg');
+  /* border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px; */
 }
 
 .col-img {
