@@ -12,6 +12,7 @@ public class usuario {
     private String apellido;
     private List<cultivo> cultivo;
 
+
     public usuario() {
         cultivo = new ArrayList<cultivo>();
     }

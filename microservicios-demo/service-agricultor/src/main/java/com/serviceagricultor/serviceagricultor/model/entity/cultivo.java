@@ -22,6 +22,7 @@ public class cultivo implements Serializable {
     private Double litros;
 
     private String cultivo;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnore
 
