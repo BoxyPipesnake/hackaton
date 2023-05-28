@@ -15,9 +15,12 @@ public class CalculoRiegoDto {
     private int horasRiego;
     private int consumoDia;
     private int consumoCiclo;
-    public CalculoRiegoDto(Long id ,String nombreUsuario, double hectareas, String cultivo, double aguaPlanta,
-                           int duracionCosecha, int densidadHectarea, int horasRiego, int consumoDia, int consumoCiclo) {
-        this.idUsuario=id;
+    private String recomendacion;
+
+    public CalculoRiegoDto(Long id, String nombreUsuario, double hectareas, String cultivo, double aguaPlanta,
+                           int duracionCosecha, int densidadHectarea, int horasRiego, int consumoDia, int consumoCiclo,
+                           String recomendacion) {
+        this.idUsuario = id;
         this.nombreUsuario = nombreUsuario;
         this.hectareas = hectareas;
         this.cultivo = cultivo;
@@ -27,5 +30,6 @@ public class CalculoRiegoDto {
         this.horasRiego = horasRiego;
         this.consumoDia = consumoDia;
         this.consumoCiclo = consumoCiclo;
+        this.recomendacion = recomendacion;
     }
 }
