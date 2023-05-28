@@ -39,6 +39,7 @@ public class controllercultivo {
             Integer duracionCosecha;
             Integer densidadHectarea;
             Integer horasRiego;
+            String recomendacion;
 
             // Intentar convertir los valores en números
             try {
@@ -46,6 +47,7 @@ public class controllercultivo {
                 duracionCosecha = Integer.parseInt(line[2]);
                 densidadHectarea = Integer.parseInt(line[3]);
                 horasRiego = Integer.parseInt(line[4]);
+                recomendacion = line[5];
             } catch (NumberFormatException e) {
                 // Ignorar la línea si no se pueden convertir los valores en números
                 continue;
@@ -64,7 +66,7 @@ public class controllercultivo {
                             densidadHectarea,
                             horasRiego,
                             (int) ((aguaPlanta * 2) * (horasRiego * densidadHectarea) * c.getHectareas()),
-                            (int) ((aguaPlanta * 2) * (horasRiego * densidadHectarea) * c.getHectareas() * duracionCosecha)
+                            (int) ((aguaPlanta * 2) * (horasRiego * densidadHectarea) * c.getHectareas() * duracionCosecha), recomendacion
                     );
 
                     calculos.add(calculo);
@@ -79,6 +81,7 @@ public class controllercultivo {
                     System.out.println("horasRiego = " + calculo.getHorasRiego());
                     System.out.println("consumoDia = " + calculo.getConsumoDia());
                     System.out.println("consumoCiclo = " + calculo.getConsumoCiclo());
+                    System.out.println("calculo.getRecomendacion() = " + calculo.getRecomendacion());
 
                     System.out.println();
 

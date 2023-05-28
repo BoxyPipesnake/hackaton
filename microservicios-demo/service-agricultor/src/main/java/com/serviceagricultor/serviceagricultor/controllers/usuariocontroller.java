@@ -19,6 +19,7 @@ public class usuariocontroller {
 
 
     @PostMapping("/save")
+    @CrossOrigin("*")
     public usuario guardarUsuario(@RequestBody usuario us) {
 
         usuario user = us;
@@ -36,12 +37,14 @@ public class usuariocontroller {
     }
 
     @GetMapping("/findAll")
+    @CrossOrigin("*")
     public List<usuario> findall() {
 
         return imp.findAll();
     }
 
     @GetMapping("/cultivos/user/{id}")
+    @CrossOrigin("*")
     public UsuarioDTO findall(@PathVariable(name = "id") Long id) {
         UsuarioDTO dto = new UsuarioDTO();
         dto.setId(imp.findById(id).get().getId());
