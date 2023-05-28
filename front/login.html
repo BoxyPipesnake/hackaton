@@ -6,8 +6,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="styles.css" />
+    <style>
+      body {
+        min-height: 100vh;
+        background: linear-gradient(
+          135deg,
+          rgb(235, 229, 229) 60%,
+          rgb(247, 244, 52)
+        );
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .nav {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+      }
+
+      .logos {
+        border-radius: 50%;
+      }
+
+      img {
+        display: block;
+        background: transparent;
+        border-radius: 50%;
+        box-shadow: 2px 4px 2px 2px black;
+      }
+
+      .container-form {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+      }
+
+      .formTigre {
+        display: flex;
+        flex-direction: column;
+        gap: 1.3rem;
+        background-color: white;
+        padding: 2rem;  
+      }
+
+      .labelTigre {
+        font-size: 1.2rem;
+      }
+
+      .btnTigre {
+        text-decoration: none;
+        color: black;
+        display: block;
+        padding: 1.5rem;
+      }
+
+    </style>
   </head>
   <body>
-    
+    <main>
+      <nav class="nav">
+        <div class="logos">
+          <img src="./img/logo.jpeg" alt="tigre logo" />
+        </div>
+      </nav>
+      <div class="container-form">
+        <h1>Login</h1>
+        <form action="" class="formTigre">
+          <div class="form-group">
+            <label for="nombreForm" class="labelTigre">Nombres</label>
+            <input type="text" id="nombreForm">
+          </div>
+          <div class="form-group">
+            <label for="idForm" class="labelTigre">id.</label>
+            <input type="password" id="idform">
+          </div>
+          <div class="flex">
+            <a href="index.html" class="btnTigre btnTigre-1">Login</a>
+            <a href="#" class="btnTigre btnTigre-2">Registar</a>
+          </div>
+        </form>
+      </div>
+    </main>
   </body>
 </html>
