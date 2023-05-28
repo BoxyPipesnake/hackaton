@@ -28,6 +28,18 @@ body {
   max-width: 720px;
 }
 
+
+/* CONTROL FORM 2 */
+.form.h--496 {
+  height: 550px;
+  padding: 3rem;
+}
+
+.col-registro.pb-0 {
+  padding-bottom: 0;
+}
+
+
 .inactive {
   display: none;
 }
@@ -82,6 +94,10 @@ input {
   display: inline-block;
 }
 
+select {
+  padding: 0.5rem;
+}
+
 .main-container {
   height: 100%;
   border-radius: 25px;
@@ -97,6 +113,10 @@ input {
 
 .main-content .registro {
   font-size: 26px;
+}
+
+.main-content.main-content-registro2{
+  grid-template-columns: 40% 60%;
 }
 
 .form {
@@ -141,9 +161,9 @@ input {
   border-bottom-right-radius: 10px;
 }
 
-.inside-bg {
-  width: 100%;
-  background-color: brown;
+.col-img {
+     margin-left: -231px;
+    margin-top: 150px;
 }
 
 .btn-registro {
