@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="main-container">
+      <div class="main-content">
+        <div class="col-registro">
+          <form action="" class="form">
+            <!-- 
+                distrito
+                fecha
+                cultivo
+             -->
+            <h1 class="registro">Registro2</h1>
+
+            <label for="distrito">Distrito</label>
+            <select name="" id="distrito">
+              <option value="anahuac">Anahuac</option>
+              <option value="montemorles">Montemorelos</option>
+              <option value="apodaca">Apodaca</option>
+            </select>
+
+            <div class="form-field">
+              <label for="fecha">Fecha</label>
+              <input type="text" id="fecha" placeholder="27/02/20" />
+            </div>
+
+            <div class="form-field">
+                <label for="hectareas">Hectareas</label>
+                <input type="text" id="hectareas">
+            </div>
+
+            <div class="form-field">
+                <label for="litros">Litros</label>
+                <input type="text" id="litros">
+            </div>
+
+            <label for="cultivo">Cultivo</label>
+            <select class="form-control" id="cultivo" onchange="llenaUnidMed()">
+              <option value="0">Resumen cultivos</option>
+              <option value="7">Aguacate</option>
+              <option value="8">Ajo</option>
+              <option value="15">Alfalfa</option>
+              <option value="42">Avena forrajera en verde</option>
+              <option value="43">Avena grano</option>
+              <option value="89">Chile verde</option>
+              <option value="122">Durazno</option>
+              <option value="152">Frijol</option>
+              <option value="212">Limón</option>
+              <option value="224">Maíz forrajero en verde</option>
+              <option value="225">Maíz grano</option>
+              <option value="234">Manzana</option>
+              <option value="259">Naranja</option>
+              <option value="268">Nopalitos</option>
+              <option value="272">Nuez</option>
+              <option value="283">Papa</option>
+              <option value="373">Sorgo forrajero en verde</option>
+              <option value="374">Sorgo grano</option>
+              <option value="392">Toronja (pomelo)</option>
+              <option value="395">Trigo grano</option>
+              <option value="401">Uva</option>
+            </select>
+
+            <button type="button" class="btn-registro btn-registro2">Registrar</button>
+          </form>
+        </div>
+        <div class="col-bg">
+          <!-- <img src="./img/Earth-unscreen.gif" /> -->
+          <div class="inside-bg"></div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
